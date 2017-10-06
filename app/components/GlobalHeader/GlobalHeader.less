@@ -1,0 +1,111 @@
+@import  "../../variables.less";
+
+.global-header {
+    background-color: #fff;
+    height: 74px;
+    padding: 12px 0;
+    box-sizing: border-box;
+    border: 0px none;
+    border-radius: 0;
+    flex: none;
+    // box-shadow: 0px 2px 4.5px 0px rgba(0, 0, 0, 0.23);
+    .container {
+        width: 100%;
+        max-width: 100%;
+        .header-logo-container {
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -75px;
+        }
+    }
+    .nav-pills {
+        margin-top: 5px;
+        > li > a {
+            color: @gray-dark;
+            font-weight: bold;
+            &:hover,
+            &:focus {
+                color: #000;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .global-header-bars {
+        > li {
+            margin-left: 5px;
+            & > a {
+                background-color: #ebe9eb;
+                &:hover,
+                &:focus {
+                    color: #000;
+                    background-color: #ddd;
+                }
+            }
+        }
+    }
+
+    .-position-bar {
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+
+    .-profile {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    .-profile-name {
+        padding-right: 10px;
+    }
+    .-profile-pic {
+        object-fit: cover;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 13px;
+        vertical-align: middle;
+    }
+    .-profile-menu-icon {
+        width: 15px;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        &:before,
+        &:after,
+        .-text {
+            background: @gray-dark;
+            border-radius: 2px;
+            content: '';
+            display: block;
+            height: 2px;
+            margin: 2px 0;
+            width: 100%;
+            transition: all .2s ease-out;
+        }
+    }
+
+    .-sub-menu {
+        margin: 14px 0 0;
+        background-color: #fff;
+        padding: 10px 0px;
+        border-radius: 0 0 3px 3px;
+        box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.23);
+        // border-top: 1px solid rgba(0, 0, 0, 0.23);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 1;
+        width: 100%;
+        min-width: 122px;
+        > li > a {
+            padding: 10px 20px;
+        }
+    }
+}
+
+    .global-header-logo {
+        width: 150px;
+    }

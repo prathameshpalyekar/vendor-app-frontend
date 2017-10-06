@@ -1,0 +1,25 @@
+@import '../../../../variables.less';
+
+.job-details {
+}
+
+    .job-details-candidate-info {
+        .icon-check {
+            &:before {
+                color: @brand-primary;
+            }
+        }
+        .icon-cross {
+            &:before {
+                color: @brand-danger;
+            }
+        }
+        .-content {
+            .row {
+                padding-bottom: 8px;
+                &:last-child {
+                    padding-bottom: 0px;
+                }
+            }
+        }
+    }

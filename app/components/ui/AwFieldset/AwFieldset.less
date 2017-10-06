@@ -1,0 +1,123 @@
+@import "../../../variables.less";
+
+.aw-fieldset {
+    min-height: 20px;
+    background-color: @well-bg;
+    border-radius: 3px;
+    border-radius: @border-radius-base;
+    margin-bottom: 22px;
+    .well {
+        background-color: #eaeaea;
+    }
+    &.-plain {
+        background-color: transparent;
+        .aw-fieldset-header,
+        .aw-fieldset-body {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .aw-fieldset-header {
+            padding-top: 0;
+        }
+        .aw-fieldset-body {
+            .-content {
+                padding-bottom: 0;
+            }
+        }
+    }
+    &.-dark {
+        background-color: #3c3c3c;
+        color: #fff;
+        .aw-fieldset-title {
+            color: #fff;
+            &:before {
+                color: @brand-warning;
+            }
+        }
+    }
+}
+
+.aw-fieldset-header {
+    padding: 20px 15px 20px 20px;
+    position: relative;
+}
+
+.aw-fieldset-title {
+    margin: 0;
+    font-size: 15px;
+    line-height: 20px;
+    color: #3c3c3c;
+    font-weight: bold;
+}
+
+.aw-fieldset-body {
+    padding: 0px 15px 0px 20px;
+    // overflow-y: hidden;
+    // max-height: 0px;
+
+    // transition-property: all;
+    // transition-duration: .2s;
+    // transition-timing-function: linear;
+    display: none;
+    &.in {
+        display: block;
+        // max-height: 100%;
+    }
+    .-content {
+        padding-bottom: 20px;
+        word-wrap: break-word;
+        .form-group {
+          margin-left: 0;
+          margin-right: 0;
+        }
+    }
+    .-html-content {
+        > div:empty {
+            height: 10px;
+        }
+        word-wrap: break-word;
+    }
+}
+
+.aw-fieldset-collapse {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    color: #bdbdbd;
+    text-decoration: none;
+    transform: rotate(0deg);
+    transition-property: all;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+    &:hover, &:focus, &:active {
+        color: darken(#bdbdbd, 5%);
+        text-decoration: none;
+        outline: none;
+    }
+    // Nullify icon margin
+    &:before {
+        margin-right: 0;
+        font-size: 20px;
+    }
+    &.closed {
+        transform: rotate(-180deg);
+    }
+}
+//
+// .example-enter {
+//   opacity: 0.01;
+// }
+//
+// .example-enter.example-enter-active {
+//   opacity: 1;
+//   transition: opacity 500ms ease-in;
+// }
+//
+// .example-leave {
+//   opacity: 1;
+// }
+//
+// .example-leave.example-leave-active {
+//   opacity: 0.01;
+//   transition: opacity 300ms ease-in;
+// }

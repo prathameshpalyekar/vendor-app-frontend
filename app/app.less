@@ -1,0 +1,89 @@
+// @import 'components/pure/index.less';
+@import 'components/bootstrap/index.less';
+@import 'components/icons/icons.less';
+@import './variables.less';
+@import 'components/ui/util.less';
+
+body {
+    background-color: #ddd;
+    background-position: center center;
+    background-size: cover;
+    // padding-bottom: 40px; // Leave space in the end
+    min-height: 100vh;
+    // min-width: 1830px;
+    min-width: 900px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+    outline:0px !important;
+    box-shadow: none !important;
+}
+
+* {
+    &::selection {
+        background: @brand-primary;
+        color: white;
+    }   
+    &::-moz-selection {
+        background: @brand-primary;
+        color: white;
+    }
+}
+
+
+.joyride {
+    .category-heading {
+        display: inline-block;
+        text-decoration: underline;
+        font-size: 13px;
+        padding: 6px 0px 3px 0px;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    min-width: 800px !important;
+    margin: 0 auto;
+}
+
+.app {
+    height: 100vh;
+    position: relative;
+    display: block;
+}
+
+.app-inner {
+    height: 100vh;
+}
+
+.app-inner-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.job-board-list{
+    overflow: auto;
+    padding: 0 0 0 10px;
+    flex-grow: 1;
+}
+
+.jobs-wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    flex-grow: 1;
+    overflow-y: hidden;
+}

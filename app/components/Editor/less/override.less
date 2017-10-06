@@ -1,0 +1,35 @@
+.quill {
+    border: 2px solid #e6e6e6;
+    border-radius: 3px;
+    background-clip: padding-box;
+    .ql-toolbar {
+        background-color: #e6e6e6;
+        text-align: center;
+        .ql-format-group {
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    .ql-container {
+        color: #767676;
+        background-color: #fff;
+        border-radius: 3px;
+        padding: 20px 18px;
+        font-family: sans-serif !important;
+        .ql-editor {
+            min-height: 265px - 40px;
+        }
+    }
+    .ql-format-button {
+        transition: all 0.1s linear;
+        border-radius: 50%;
+        &:hover {
+            background-color: #c4c4c4;
+        }
+    }
+    .ql-active {
+        background-color: #c4c4c4;
+    }
+}
+
