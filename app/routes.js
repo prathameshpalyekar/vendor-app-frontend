@@ -8,6 +8,8 @@ import Immutable from 'immutable';
 import App from './App.jsx';
 import AuthRoutes from 'modules/auth/routes';
 import HomeRoutes from 'modules/home/routes';
+import SettingRoutes from 'modules/settings/routes';
+import FoodRoutes from 'modules/food/routes';
 
 import configureStore from 'store/ConfigureStore';
 
@@ -28,7 +30,9 @@ const rootRoute = {
     component: App,
     childRoutes: [
         ...AuthRoutes,
-        HomeRoutes
+        HomeRoutes,
+        ...SettingRoutes,
+        ...FoodRoutes,
     ]
 }
 

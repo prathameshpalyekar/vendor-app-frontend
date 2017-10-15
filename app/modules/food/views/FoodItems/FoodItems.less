@@ -1,0 +1,104 @@
+.food-items {
+    margin: 10px;
+    .-container {
+        .-title {
+            margin-top: 15px;
+            span {
+                display: inline-block;
+                font-size: 20px;
+                font-weight: bold;
+                margin-right: 30px;
+            }
+            .btn {
+                position: relative;
+                bottom: 3px;
+                padding: 5px;
+                border-radius: 16px;
+                &::before {
+                    position: relative;
+                    left: 3px;
+                }
+            }
+            .btn-danger {
+                padding: 4px;
+                border-radius: 20px;
+                cursor: pointer;
+                margin-left: 10px;
+                position: relative;
+                bottom: 2px;
+                &::before {
+                    position: relative;
+                    left: 4px;
+                    bottom: 1px;
+                } 
+            }
+        }
+        .-list {
+            margin: 10px;
+            min-height: 10px;
+            overflow: auto;
+            max-height: 375px;
+            padding: 5px;
+            .-food-item {
+                padding: 5px;
+                font-size: 15px;
+                font-weight: bold;
+                display: inline-block;
+                border-radius: 5px;
+                cursor: pointer;
+                .-code {
+                    margin: 0px 10px;
+                    width: 40px;
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .-name {
+                    margin: 0px 10px;
+                    width: 210px;
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .-price {
+                    margin: 0px 10px;
+                    width: 40px;
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .btn-danger {
+                    padding: 2px;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    &::before {
+                        position: relative;
+                        left: 4px;
+                        bottom: 1px;
+                    } 
+                }
+                .btn-edit {
+                    padding: 4px;
+                    border-radius: 16px;
+                    position: relative;
+                    bottom: 1px;
+                    margin: 0px 10px;
+                    cursor: pointer;
+                    &::before {
+                        position: relative;
+                        left: 3px;
+                    }
+                    &:hover {
+                        background-color: #009fe2;
+                        color: white;
+                    }
+                }
+                &:hover {
+                    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+                    background-color: #f6f6f6;
+                    font-size: 17px;
+                }
+            }
+        }
+        .-new-item {
+            margin: 10px 0px;
+        }
+    }
+}

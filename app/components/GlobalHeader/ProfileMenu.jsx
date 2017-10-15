@@ -96,13 +96,7 @@ class ProfileMenu extends Component {
 
         return (
             <li ref="profileMenu">
-                <a href="#" className="-profile" onClick={this.toggleSubMenu}>
-                    <img src={user.get('profilePicture') || DEFAULT_PROFILE_PIC} className="-profile-pic" />
-                    <span className="-profile-name">{user.get('name')}</span>
-                    <div className="-profile-menu-icon">
-                        <span className="-text"/>
-                    </div>
-                </a>
+                <Link to="/logout" className="icon-log-out">Logout</Link>
             </li>
         );
     }

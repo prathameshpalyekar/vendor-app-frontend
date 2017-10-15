@@ -1,16 +1,36 @@
 @import '../../../variables.less';
 .login-form {
     margin-top: 112px;
+    width: 350px;
     .modal-header,
     .modal-footer {
         border-radius: 0;
     }
+    .-logo-container {
+        position: relative;
+        bottom: 15px;
+        text-align: center;
+        .-logo {
+            width: 150px;
+            height: 150px;
+        }
+    }
+    .-inputs {
+        position: relative;
+        bottom: 40px;
+        .form-group {
+            margin-bottom: 0px;
+        }
+    }
+    .-submit {
+        text-align: center;
+        .login-form-button {
+            padding: 8px 35px;
+            width: 50%;
+            background-color: #ffb228;
+            color: black;
+        }
+    }
 }
 
-    .login-form-forgot-link {
-        color: @brand-primary;
-    }
-
-    .login-form-button {
-        padding: 8px 35px;
-    }
+    
