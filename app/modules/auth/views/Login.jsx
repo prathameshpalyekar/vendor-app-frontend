@@ -8,18 +8,16 @@ import FC from 'components/Formsy'
 import { AwModal, AwFieldset } from 'components/ui';
 import { loginUser } from '../actions/login.js';
 import Config from '../../../config';
+const Logo = '/assets/' + require('assets/images/logo.jpg');
 
 import './Login.less'
 
 class Login extends Component {
-
     constructor(props) {
         super(props)
-
         this.state = {
             submitted: false,
         };
-
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -64,18 +62,21 @@ class Login extends Component {
                 overlay = {{overlay: {backgroundColor: 'transparent'}}}
                 noCloseBtn={true}
                 shouldCloseOnOverlayClick={false}
-                headerTitle="Login"
                 className="login-form">
 
                 <Formsy.Form className="form" onValidSubmit={this.onSubmit}>
                     <AwModal.Body>
-                        <FC.Input layout="vertical" label="Name" name="name" placeholder="Name" type="name" required/>
-                        <FC.Input layout="vertical" label="Password" name="password" placeholder="Password" type="password" required/>
+                        <div className="-logo-container">
+                            <img src={Logo} className="-logo" />
+                        </div>
+                        <div className="-inputs">
+                            <FC.Input layout="vertical" name="name" placeholder="Name" type="name"/>
+                            <FC.Input layout="vertical" name="password" placeholder="Password" type="password"/>
+                        </div>
+                        <div className="-submit">
+                            <button type="submit" className="btn btn-primary login-form-button">Login</button>
+                        </div>
                     </AwModal.Body>
-
-                    <AwModal.Footer>
-                        <button type="submit" className="btn btn-primary login-form-button">Login</button>
-                    </AwModal.Footer>
                 </Formsy.Form>
             </AwModal.Modal>
         );

@@ -1,9 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import axios from 'axios';
 import Config from '../../../config';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
 import '../job.less'
 
 class HomeMain extends Component {
@@ -64,17 +61,7 @@ class HomeMain extends Component {
 
         return (
             <div>
-                <Paper className="filter-section" zDepth={2}>
-                    <TextField hintText="Pokemon Rank" className="search-by-rank" onChange={this.onChange.bind(this)}/>
-                    <RaisedButton label="Search" onClick={this.searchByIndex.bind(this)}/>
-                </Paper>
-                {
-                    this.state.data.map((pokemon, index) => {
-                        return  <Paper className="pokemon-card" zDepth={3} key={index}>
-                                    <img src={pokemon.imageUrl} className="image-content"/>
-                                </Paper>
-                    })
-                }
+                home
             </div>
         );
     }

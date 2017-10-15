@@ -22,9 +22,14 @@ class GlobalHeader extends Component {
         return (
             <header className="navbar navbar-default global-header" style={style}>
                 <Canvas>
-                    <div className="header-logo-container">
-                        <Logo/>
-                    </div>
+                    <ul className="nav nav-pills global-header-bars -position">
+                        <li>
+                            <Link to="/food-menu" className="icon-job-description -position-bar">Food</Link>
+                        </li>
+                        <li>
+                            <Link to="/settings" className="icon-archive -position-bar">Settings</Link>
+                        </li>
+                    </ul>
                     <div className="pull-right">
                         {isAuthenticated? this.renderProfileSection() : null}
                     </div>

@@ -1,0 +1,26 @@
+.categories {
+    width: 30%;
+    background-color: #ffb228;
+    height: 100%;
+    display: inline-block;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    float: left;
+    overflow: auto;
+    .-container {
+        max-height: 95%;
+        .-category-container {
+            padding: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid white;
+            cursor: pointer;
+            &:hover {
+                background-color: #d88e0a;
+            }
+        }
+        .-add-new {
+            background-color: #fdcf7d;
+        }
+    }
+}
