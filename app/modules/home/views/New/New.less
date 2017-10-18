@@ -1,16 +1,26 @@
 .new {
 	padding: 25px;
-	.-top {
-		overflow: auto;
-		font-size: 20px;
-		.-bill-number {
-			float: left;
-			.-number {
-				font-weight: bold;
+	.-bill-section {
+		display: inline-block;
+	    overflow: auto;
+	    vertical-align: top;
+	    width: 60%;
+	    margin-right: 20px;
+	    background-color: #fecf7d;
+		.-top {
+			overflow: auto;
+			font-size: 20px;
+			padding: 15px;
+			padding-bottom: 0px;
+			.-bill-number {
+				float: left;
+				.-number {
+					font-weight: bold;
+				}
 			}
-		}
-		.-bill-date {
-			float: right;
+			.-bill-date {
+				float: right;
+			}
 		}
 	}
 }

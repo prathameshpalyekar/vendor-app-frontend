@@ -39,18 +39,14 @@ class Home extends Component {
 
         return (
             <div className="home">
-                <div className="row">
-                    <div className="col-sm-8 col-sm-offset-2">
-                        <div className="-container">
-                            <div className="-tab-section">
-                                <div className={newTabClass} onClick={this.switchTab.bind(this, 'new')}> NEW </div>
-                                <div className={editTabClass} onClick={this.switchTab.bind(this, 'edit')}> EDIT </div>
-                            </div>
-                            <div className="-content">
-                                {activeTab === 'new' ? <New/> : <div>Edit Section</div>
-                                }
-                            </div>
-                        </div>
+                <div className="-container">
+                    <div className="-tab-section">
+                        <div className={newTabClass} onClick={this.switchTab.bind(this, 'new')}> NEW </div>
+                        <div className={editTabClass} onClick={this.switchTab.bind(this, 'edit')}> EDIT </div>
+                    </div>
+                    <div className="-content">
+                        {activeTab === 'new' ? <New/> : <div>Edit Section</div>
+                        }
                     </div>
                 </div>
             </div>
