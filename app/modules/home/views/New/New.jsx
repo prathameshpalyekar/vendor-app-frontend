@@ -12,35 +12,45 @@ class New extends Component {
         super(props);
         this.state = {
             billNo: 101,
-            list: []
+            newItem: {},
+            itemAdded: true
         };
-        this.addItemToList = this.addItemToList.bind(this);
+        this.insertItem = this.insertItem.bind(this);
+        this.itemInserted = this.itemInserted.bind(this);
     }
 
-    addItemToList(item) {
-        const list = this.state.list.slice();
-        list.push(item);
+    insertItem(item) {
         this.setState({
-            list
+            newItem: item,
+            itemAdded: false
         });
+    }
+
+    itemInserted() {
+        this.setState({
+            itemAdded: true,
+            newItem: {}
+        })
     }
     
     render() {
-        const { billNo, list } = this.state;
+        const { billNo, newItem, itemAdded } = this.state;
 
         return (
             <div className="new">
-                <div className="-top">
-                    <div className="-bill-number">
-                        Bill 
-                        <span className="-number"> #{billNo}</span>
+                <div className="-bill-section">
+                    <div className="-top">
+                        <div className="-bill-number">
+                            Bill 
+                            <span className="-number"> #{billNo}</span>
+                        </div>
+                        <div className="-bill-date">
+                            <span>{moment().format('DD-MM-YYYY')}</span>
+                        </div>
                     </div>
-                    <div className="-bill-date">
-                        <span>{moment().format('DD-MM-YYYY')}</span>
-                    </div>
+                    <BillSection item={newItem} isNew={itemAdded} itemInserted={this.itemInserted}/>
                 </div>
-                <BillSection list={list}/>
-                <InsertItem addItemToList={this.addItemToList}/>
+                <InsertItem addItemToList={this.insertItem}/>
             </div>
         );
     }

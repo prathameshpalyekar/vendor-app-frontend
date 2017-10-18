@@ -81,15 +81,17 @@ class InsertItem extends Component {
             <div className="insert-item">
                 <div className="-seatch-item">
                     <Formsy.Form className="-search-input">
-                        <div className="-title">Search criterias</div>
+                        <div className="-title">
+                            <span className="-label">Search criterias</span>
+                            <div className="-category">
+                                <button type="button" className="btn btn-primary">Category</button>
+                            </div>
+                        </div>
                         <div className="-code">
                             <FC.Input layout="vertical" name="code" placeholder="Code" type="name" onChange={this.onChange} value={code}/>
                         </div>
                         <div className="-name">
                             <FC.Input layout="vertical" name="name" placeholder="Name" type="name" onChange={this.onChange} value={name}/>
-                        </div>
-                        <div className="-category">
-                            <button type="button" className="btn btn-primary">Category</button>
                         </div>
                     </Formsy.Form>
                     <div className="-search-result">
