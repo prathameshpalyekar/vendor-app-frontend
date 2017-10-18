@@ -24,6 +24,9 @@ class GlobalHeader extends Component {
                 <Canvas>
                     <ul className="nav nav-pills global-header-bars -position">
                         <li>
+                            <Link to="/home" className="icon-briefcase -position-bar">Home</Link>
+                        </li>
+                        <li>
                             <Link to="/food-menu" className="icon-job-description -position-bar">Food</Link>
                         </li>
                         <li>

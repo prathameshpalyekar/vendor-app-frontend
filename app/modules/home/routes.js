@@ -1,8 +1,8 @@
-import JobsMain from './views/HomeMain';
+import Home from './views/Home';
 
 const Routes = {
     path: '/home',
-    component: JobsMain
+    component: Home
 }
 
 export default Routes
