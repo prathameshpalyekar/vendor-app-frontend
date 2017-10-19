@@ -22,6 +22,7 @@ class BillSection extends Component {
                 list
             });
             this.props.itemInserted();
+            this.props.updateOrder(list);
         }
     }
 
@@ -47,6 +48,7 @@ class BillSection extends Component {
             this.setState({
                 list
             });
+            this.props.updateOrder(list);
         }
     }
 
@@ -58,6 +60,7 @@ class BillSection extends Component {
             this.setState({
                 list
             });
+            this.props.updateOrder(list);
         }
     }
     
