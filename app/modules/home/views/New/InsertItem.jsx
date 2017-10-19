@@ -11,9 +11,14 @@ class InsertItem extends Component {
         this.state = {
             name: '',
             code: '',
-            item: {}
+            item: {},
+            showCategory: false,
+            showCategoryFoods: false,
+            selectedCategory: null
         };
         this.onChange = this.onChange.bind(this);
+        this.showCategory = this.showCategory.bind(this);
+        this.goBack = this.goBack.bind(this);
     }
 
     onChange(name, value) {
@@ -24,6 +29,22 @@ class InsertItem extends Component {
 
     selectItem(item) {
         this.props.addItemToList(item);
+    }
+
+    showCategory() {
+        this.setState({
+            showCategory: !this.state.showCategory,
+            showCategoryFoods: false,
+            selectedCategory: null
+        });
+    }
+
+    goBack() {
+        this.setState({
+            showCategory: true,
+            showCategoryFoods: false,
+            selectedCategory: null
+        });
     }
 
     getCategories() {
@@ -56,14 +77,22 @@ class InsertItem extends Component {
             return 0;
         });
     }
+
+    selectCategory(category) {
+        this.setState({
+            showCategoryFoods: true,
+            selectedCategory: category,
+        })
+    }
     
     render() {
-        const { code, name, item, quantity } = this.state;
+        const { code, name, item, quantity, showCategory, showCategoryFoods, selectedCategory } = this.state;
         const categories = this.getCategories();
         const foodList = this.getFoodList();
         const self = this;
         let foodListByName = [];
         let foodListByCode = [];
+        let foodListByCategory = [];
 
         if (name.length > 2) {
             foodListByName = foodList.filter((food) => {
@@ -77,6 +106,12 @@ class InsertItem extends Component {
             });
         }
 
+        if (selectedCategory) {
+            foodListByCategory = foodList.filter((food) => {
+                return food.categoryId === selectedCategory.id;
+            });
+        }
+
         return (
             <div className="insert-item">
                 <div className="-seatch-item">
@@ -84,7 +119,7 @@ class InsertItem extends Component {
                         <div className="-title">
                             <span className="-label">Search criterias</span>
                             <div className="-category">
-                                <button type="button" className="btn btn-primary">Category</button>
+                                <button type="button" className="btn btn-primary" onClick={this.showCategory}>{showCategory ? 'Hide Categories': 'Show Categories'}</button>
                             </div>
                         </div>
                         <div className="-code">
@@ -94,32 +129,69 @@ class InsertItem extends Component {
                             <FC.Input layout="vertical" name="name" placeholder="Name" type="name" onChange={this.onChange} value={name}/>
                         </div>
                     </Formsy.Form>
-                    <div className="-search-result">
-                        <div className="-result-name">
-                            <div className="-title">Results for search by <b>Name</b> : </div>
-                            {foodListByName.map((item) => {
-                                return (
-                                    <div className="-item" onClick={this.selectItem.bind(this, item)}>
-                                        <span className="-code">{item.code}</span>
-                                        <span className="-name">{item.name}</span>
-                                        <span className="-price">{item.price}</span>
-                                    </div>
-                                )
-                            })}
+                    {showCategory ? 
+                        <div className="-search-result">
+                            {selectedCategory ?  
+                                <div className="-selected-category">
+                                    <span className="-header">{selectedCategory.type}</span>
+                                    <button type="button" className="btn btn-hide" onClick={this.goBack}>Back</button>
+                                </div>
+                                : null
+                            }
+                            {showCategoryFoods ? 
+                                <div className="-result-name">
+                                    {foodListByCategory.map((item) => {
+                                        return (
+                                            <div className="-item" onClick={this.selectItem.bind(this, item)}>
+                                                <span className="-code">{item.code}</span>
+                                                <span className="-name">{item.name}</span>
+                                                <span className="-price">{item.price}</span>
+                                            </div>
+                                        )
+                                    })}
+                                    {foodListByCategory.length === 0 ?
+                                        <div className="-no-items">Currently no food items are present in this category.</div>
+                                        : null
+                                    }
+                                </div>
+                                : <div>
+                                    {categories.map((category) => {
+                                        return (
+                                            <div className="-result-category" onClick={this.selectCategory.bind(this, category)}>
+                                                {category.type}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            }
                         </div>
-                        <div className="-result-name">
-                            <div className="-title">Results for search by <b>Code</b> : </div>
-                            {foodListByCode.map((item) => {
-                                return (
-                                    <div className="-item" onClick={this.selectItem.bind(this, item)}>
-                                        <span className="-code">{item.code}</span>
-                                        <span className="-name">{item.name}</span>
-                                        <span className="-price">{item.price}</span>
-                                    </div>
-                                )
-                            })}
-                        </div> 
-                    </div>
+                        : <div className="-search-result">
+                            <div className="-result-name">
+                                <div className="-title">Results for search by <b>Name</b> : </div>
+                                {foodListByName.map((item) => {
+                                    return (
+                                        <div className="-item" onClick={this.selectItem.bind(this, item)}>
+                                            <span className="-code">{item.code}</span>
+                                            <span className="-name">{item.name}</span>
+                                            <span className="-price">{item.price}</span>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <div className="-result-name">
+                                <div className="-title">Results for search by <b>Code</b> : </div>
+                                {foodListByCode.map((item) => {
+                                    return (
+                                        <div className="-item" onClick={this.selectItem.bind(this, item)}>
+                                            <span className="-code">{item.code}</span>
+                                            <span className="-name">{item.name}</span>
+                                            <span className="-price">{item.price}</span>
+                                        </div>
+                                    )
+                                })}
+                            </div> 
+                        </div>
+                    }
                 </div>
             </div>
         );
