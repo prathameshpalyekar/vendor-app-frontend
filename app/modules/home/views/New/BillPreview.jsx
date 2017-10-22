@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { AwModal } from 'components/ui';
 import Formsy from 'formsy-react';
 import FC from 'components/Formsy';
-// import { addUser } from 'modules/settings/actions/addUser';
+import { createBill } from 'modules/home/actions/createBill';
 import Alert from 'react-s-alert';
 import './BillPreview.less';
 
@@ -46,7 +46,7 @@ class BillPreview extends Component {
         //     password,
         //     admin
         // };
-        // dispatch(addUser(userData, userId));
+        dispatch(createBill(bill));
         // this.setState({
         //     submitted: true
         // });
